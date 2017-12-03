@@ -1,0 +1,89 @@
+public class SortArrayDictionary<K, V> implements DictionaryInterface<K, V>
+{
+	private Entry<K, V> {} dictionary;
+	private int numberOfEntries;
+	private boolean initialized = false;
+	private final static int DEFAULT_CAPACITY = 25;
+	private static final int MAX_CAPACITY = 10000;
+	
+	public ArrayDictionary()
+	{
+		this(DEFAULT_CAPACITY);
+	}
+	
+	public ArrayDictionary(int initiaCapacity)
+	{
+		checkCapacity(initialCapacity);
+		@SuppressWarnings("unchecked")
+		Entry<K, V>[] tempDictionary = (Entry<K, V>[])new Entry{initialCapacity];
+		dictionary = tempDictionary;
+		numberOfEntries = 0;
+		initialized = true;
+	}
+	
+	private class Entry<S, T>
+	{
+		private S key;
+		private T value;
+		
+		private Entry(S searchKey, T dataValue)
+		{
+			key = searchKey;
+			value = dataValue;
+		}
+		private S getKey()
+		{
+			return key;
+		}
+		private T getValue()
+		{
+			return value;
+		}
+		private void setValue(T newValue)
+		{
+			value = newValue;
+		}
+	}
+	
+	public V add(K key, V value)
+	{
+		checkInitialization();
+		if((key == null) || (value == null))
+			throw new IllegalArgumentException();
+		else
+		{
+			V result = null;
+			int keyIndex = locateIndex(key);
+			if(keyIndex < numberOfEntries)&& key.equals(dictionary[keyIndex].getKey
+			{
+				result = dictionary[keyIndex].getValue();
+				dictionary[keyIndex].setValue(value);
+			}
+			return result;
+		}
+	}
+	public V remove(V key)
+	{
+		result = null;
+		if(keyIndex < numberOfEntries) && key.equals(dictionary[keyIndex].getKey()))
+			result = dictionary[keyIndex].getValue();
+			dictionary[keyIndex]--;
+	}
+	public V getValue(K key)
+	{
+		int index = 0
+		while ((index < numberOfEntries)&& key.compareTo(dictionary[index].getKey())>0)
+			index++;
+		return index;
+	}
+	public boolean contains(K key)
+	{
+		
+	}
+	public boolean isEmpty()
+	{
+		return size() == 0;
+	}
+	
+	}
+}
